@@ -1,9 +1,24 @@
-## Rquirements
+This is a sample (incomplete) implementation of the Leaky Bucket Algorithm for API Rate limiting
 
-1. User id configurable for different users
-2. Capacity will never refresh after we hit
-3. Figure out rate-limiting for distributed scenario = global cache i.e redis
+## Installation
+
+1. Clone the repo
+   ```
+   git clone https://github.com/Bhupesh-V/ratelimiter-demo
+   ```
+2. Start the server
+   ```
+   go run main.go
+   ```
+
+Try visiting the dev server at localhost:8080 and making quick requests. Play with capacity in `ratelimiter.CreateUserBucket()`
 
 
+### TODO
 
-CreateUserBucket should be indempotent
+- Fix support for concurrent requests
+- Add benchmarks
+- Better interface to choose between the 4 algorithms for rate-limiting
+- Pick user-ids, tokens from env or some kind of configuration
+- Interface for reading from a global distributed cache
+- Interface for making requests/user count configurable
